@@ -2,17 +2,13 @@
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" #f="ngForm" fxLayout="column">
       <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
-        <input name="title" required matInput ngModel/>
+        <mat-label>Author</mat-label>
+        <input name="author"  matInput ngModel/>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Price</mat-label>
-        <input type="number" name="price" required matInput ngModel/>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Description</mat-label>
+        <mat-label>Message</mat-label>
         <textarea
-          name="description"
+          name="message"
           ngModel
           required
           matInput
@@ -25,12 +21,14 @@
         <app-file-input name="image" ngModel></app-file-input>
       </mat-form-field>
       <div>
-        <button
+        <button *ngIf="!fetching"
           type="submit"
           mat-raised-button
           color="primary"
           [disabled]="f.invalid"
         >SAVE</button>
+        <mat-spinner *ngIf="fetching">
+        </mat-spinner>
       </div>
     </form>
   </mat-card-content>

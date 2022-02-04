@@ -1,1 +1,24 @@
-<p>content works!</p>
+<div fxLayout="row" fxLayoutGap="20px grid">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" fxFlex="70%">
+    <div
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex.lt-lg="33%"
+      fxFlex="25%"
+      *ngFor="let message of messages"
+    >
+      <mat-card>
+        <mat-card-title>{{ message.author | name }}</mat-card-title>
+        <img *ngIf="message.image !== null" [src]="message.image"
+             [alt]="'Photo of ' + message.author"
+             mat-card-image
+        />
+        <mat-card-content>
+          <p>{{ message.message }}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+      </mat-card>
+    </div>
+  </div>
+  <app-form-board fxFlex="30%"></app-form-board>
+</div>
