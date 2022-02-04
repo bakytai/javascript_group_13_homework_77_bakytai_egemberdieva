@@ -43,6 +43,6 @@ export class MessagesService {
       }
     })
 
-    return this.http.post(environment.apiUrl + '/products', formData);
+    return this.http.post(environment.apiUrl + '/messages', formData);
   };
 }

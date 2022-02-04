@@ -12,6 +12,7 @@ import { MessagesService } from '../services/messages.service';
 export class ContentComponent implements OnInit, OnDestroy {
   messages!: Message[];
   messagesSubscription!: Subscription;
+  apiUrl = environment.apiUrl;
 
   constructor(private messagesService: MessagesService) { }
 

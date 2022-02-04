@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="20px grid">
+<div fxLayout="row" fxLayoutGap="20px grid" style="padding: 30px">
   <div fxLayout="row wrap" fxLayoutGap="16px grid" fxFlex="70%">
     <div
       fxFlex.xs="100%"
@@ -9,10 +9,10 @@
     >
       <mat-card>
         <mat-card-title>{{ message.author | name }}</mat-card-title>
-        <img *ngIf="message.image !== null" [src]="message.image"
-             [alt]="'Photo of ' + message.author"
-             mat-card-image
-        />
+          <img *ngIf="message.image" [src]="apiUrl + '/uploads/' + message.image"
+               [alt]="'Photo by ' + message.author"
+               mat-card-image
+          />
         <mat-card-content>
           <p>{{ message.message }}</p>
         </mat-card-content>
